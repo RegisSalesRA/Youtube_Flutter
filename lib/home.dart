@@ -1,8 +1,12 @@
+import 'dart:math';
+
 import 'package:Flutter_youtube_api/telas/biblioteca.dart';
 import 'package:Flutter_youtube_api/telas/emalta.dart';
 import 'package:Flutter_youtube_api/telas/inicio.dart';
 import 'package:Flutter_youtube_api/telas/inscricao.dart';
 import 'package:flutter/material.dart';
+
+import 'CustomSearchDelagate.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,11 +15,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _indiceAtual = 0;
-
+  String _resultado = "";
   @override
   Widget build(BuildContext context) {
     List<Widget> telas = [
-      Inicio(),
+      Inicio(_resultado),
       EmAlta(),
       Inscricao(),
       Biblioteca(),
@@ -32,23 +36,31 @@ class _HomeState extends State<Home> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.videocam),
-            onPressed: () {
-              print("Acao video funcionando");
-            },
-          ),
-          IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {
-              print("pesquisa");
+            onPressed: () async {
+              String res = await showSearch(
+                  context: context, delegate: CustomSearchDelagate());
+              setState(() {
+                _resultado = res;
+              });
+              print("Resultado é: " + res);
             },
           ),
+
+          /*
           IconButton(
             icon: Icon(Icons.account_circle),
             onPressed: () {
               print("conta");
             },
           ),
+          
+          IconButton(
+            icon: Icon(Icons.videocam),
+            onPressed: () {
+              print("Acao video funcionando");
+            },
+          ), */
         ],
       ),
       body: Container(
