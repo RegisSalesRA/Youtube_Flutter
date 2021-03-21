@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'model/video.dart';
 
-const CHAVE_YOUTUBE_API = "AIzaSyB7z3PcDSWmEcCqZglSzzd1OIQMqsPMcxk";
+const CHAVE_YOUTUBE_API = "AIzaSyAcwl5wQGJ2wcn_EKeYasp784YftdRH3Bs";
 // const ID_CANAL = "UCW3T8dQVEynwj6-_DArcM7w";
 const URL_BASE = "https://www.googleapis.com/youtube/v3/";
 
