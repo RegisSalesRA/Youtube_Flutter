@@ -26,17 +26,7 @@ class Api {
         return Video.fromJson(map);
       }).toList();
       return videos;
-/*
-      for (var video in videos) {
-        print("resultado: " + video.titulo);
-      }
-*/
 
-/*
-      for (var video in dadosJson["items"]) {
-        print("Resultado: " + video.toString());
-      }
-*/
       print(
           "Resultado: " + dadosJson["items"][0]["snippet"]["title"].toString());
     } else {}
